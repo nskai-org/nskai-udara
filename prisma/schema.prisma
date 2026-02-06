@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+  // Tip: Prisma 7 works best if you define a custom output path
+  output   = "../generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// -----------------------------------------------------------------------------
+// USER (AMBASSADOR)
+// The "Cool Kids" who bring people to the party.
+// -----------------------------------------------------------------------------
+model User {
+  id        String  @id // This will match the Clerk ID (e.g., user_2n...)
+  email     String  @unique
+  firstName String?
+  lastName  String?
+  username  String  @unique // This allows them to have: nskai.com/ref/cool_kid_1
+  school    String?
+  phone     String? // Collected during onboarding
+
+  // Relations
+  leads Lead[] @relation("Referral")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// -----------------------------------------------------------------------------
+// LEAD (ATTENDEE)
+// The people coming to the event.
+// -----------------------------------------------------------------------------
+model Lead {
+  id         String  @id @default(uuid())
+  email      String  @unique // One email = One ticket. No double dipping!
+  firstName  String
+  lastName   String
+  university String
+  phone      String? // Contact info
+
+  source Source @default(PUBLIC)
+
+  // Tracking who invited them (The Referral Loop)
+  referredBy String?
+  referrer   User?   @relation("Referral", fields: [referredBy], references: [username])
+
+  createdAt DateTime @default(now())
+}
+
+enum Source {
+  PUBLIC
+  AMBASSADOR
+}
+
+// -----------------------------------------------------------------------------
+// SPONSOR
+// The people funding the vibe.
+// -----------------------------------------------------------------------------
+model Sponsor {
+  id        String @id @default(uuid())
+  email     String
+  amount    Float
+  status    String // PENDING, SUCCESS, FAILED
+  reference String @unique // The unique receipt ID from Paystack
+
+  createdAt DateTime @default(now())
+}
