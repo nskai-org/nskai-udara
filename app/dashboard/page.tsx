@@ -48,7 +48,7 @@ export default async function DashboardPage() {
           </p>
         </header>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Stats Card */}
           <div className="bg-card border border-white/10 p-6">
             <div className="flex items-center gap-4 mb-4">
@@ -125,10 +125,12 @@ export default async function DashboardPage() {
             <h3 className="font-heading text-xl uppercase mb-4">
               Your Referral Link
             </h3>
-            <div className="flex gap-2">
-              <code className="flex-1 bg-black border border-white/20 p-3 text-sm text-zinc-400 truncate font-mono">
-                {referralLink}
-              </code>
+            <div className="flex gap-2 w-full max-w-full">
+              <div className="flex-1 min-w-0">
+                <code className="block w-full bg-black border border-white/20 p-3 text-sm text-zinc-400 truncate font-mono">
+                  {referralLink}
+                </code>
+              </div>
               <CopyButton text={referralLink} />
             </div>
             <p className="text-xs text-zinc-500 mt-4">
@@ -143,8 +145,8 @@ export default async function DashboardPage() {
           <h2 className="font-heading text-3xl font-bold uppercase mb-8">
             Your Vibe ID
           </h2>
-          <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="w-full max-w-sm">
+          <div className="flex flex-col xl:flex-row gap-8 items-start">
+            <div className="w-full max-w-sm mx-auto xl:mx-0">
               <VibeCard
                 username={dbUser.username}
                 firstName={dbUser.firstName || "Agent"}
@@ -154,7 +156,7 @@ export default async function DashboardPage() {
               />
             </div>
 
-            <div className="max-w-md pt-4">
+            <div className="max-w-md pt-4 mx-auto xl:mx-0 text-center xl:text-left">
               <h3 className="text-xl font-bold mb-2">How to use</h3>
               <ul className="list-disc list-inside space-y-2 text-zinc-400 mb-6">
                 <li>Download your ID Card.</li>

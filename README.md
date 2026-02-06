@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NSKAI UDARA - Event Platform & Ambassador Hub 🚀
+
+**Live URL:** [nskai-udara.vercel.app](https://nskai-udara.vercel.app)
+
+## Overview
+
+NSKAI UDARA is a high-energy, Gen Z-focused event platform designed to drive engagement and registrations for the NSKAI Udara event. It serves a dual purpose:
+
+1.  **Public Event Portal**: A dynamic landing page for attendees to register, view live participant counts, and get hyped for the event.
+2.  **Ambassador Hub**: A gamified dashboard for "Cool Kids" (Ambassadors) to track referrals, generate unique "Vibe" ID cards, and compete on a live leaderboard.
+
+Built with a focus on **Intentional Minimalism** and **Avant-Garde Aesthetics**, the platform features kinetic typography, glassmorphism, and fluid animations.
+
+## Key Features
+
+### For Attendees (Public)
+
+- **Live "Watch" Counter**: Real-time display of registered attendees to create FOMO.
+- **Instant Registration**: Seamless sign-up flow linked to the referral system.
+- **Sponsor Integration**: (Coming Soon) Direct payment gateway for event sponsors via Paystack.
+
+### For Ambassadors (The Cool Kids)
+
+- **"Vibe" ID Card**: A dynamically generated, downloadable digital ID card with a unique QR code and holographic design.
+- **Referral Tracking**: dedicated tracking links (e.g., `nskai.com/register?ref=username`) to attribute leads.
+- **Live Leaderboard**: Real-time ranking of top ambassadors based on confirmed referrals.
+- **Gamification**: Visual progress bars and rank badges (Newbie -> Legend).
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Language**: TypeScript
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/) for animations.
+- **Database**: PostgreSQL (via [Prisma ORM](https://www.prisma.io/)).
+- **Authentication**: [Clerk](https://clerk.com/) (Ambassador access).
+- **Image Generation**: `html-to-image` for client-side ID card generation.
+- **Icons**: Lucide React.
+- **Deployment**: Vercel.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js >= 20
+- pnpm >= 9
+- PostgreSQL Database URL
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Clone the repository**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ```bash
+    git clone https://github.com/your-username/nskai-udara.git
+    cd nskai-udara
+    ```
 
-## Learn More
+2.  **Install dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+    ```bash
+    pnpm install
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3.  **Environment Setup**
+    Create a `.env` file in the root directory:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```env
+    DATABASE_URL="postgresql://..."
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_..."
+    CLERK_SECRET_KEY="sk_test_..."
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/ambassador/login
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/ambassador/sign-up
+    ```
 
-## Deploy on Vercel
+4.  **Database Migration**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    npx prisma migrate dev --name init
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5.  **Run Development Server**
+    ```bash
+    pnpm dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+## Project Structure
+
+- `/app`: Next.js App Router pages and layouts.
+  - `/ambassador`: Auth routes and landing page for ambassadors.
+  - `/dashboard`: Protected dashboard for ambassadors.
+  - `/leaderboard`: Public/Private rankings.
+  - `/api`: Server-side API routes (webhooks, stats).
+- `/components`: Reusable UI components (Design System).
+- `/prisma`: Database schema and migrations.
+- `/actions`: Server Actions for data mutation (Lead capture, Stats).
+- `/lib`: Utility functions (Prisma client, rate limiting).
+- `/generated`: Custom output location for Prisma Client (v7 optimization).
+
+## Deployment
+
+The project is optimized for deployment on **Vercel**.
+
+1.  **Build Command**: `prisma generate && next build` (Crucial for Prisma 7 support).
+2.  **Environment Variables**: Ensure all `.env` variables are set in the Vercel dashboard.
+
+## License
+
+This project is proprietary property of NSKAI.

@@ -15,8 +15,55 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NSKAI Udara | Ambassador Hub",
-  description: "Join the movement.",
+  title: {
+    default: "NSKAI UDARA | The Ultimate Gen Z Event Experience",
+    template: "%s | NSKAI UDARA",
+  },
+  description:
+    "Join the movement. NSKAI UDARA is the premier event platform for the next generation. Register now, track live attendees, and become an ambassador.",
+  keywords: [
+    "NSKAI",
+    "Udara",
+    "Event",
+    "Gen Z",
+    "Ambassador",
+    "Live Counter",
+    "Students",
+    "Vibe",
+  ],
+  authors: [{ name: "NSKAI Team" }],
+  creator: "NSKAI",
+  metadataBase: new URL("https://nskai-udara.vercel.app"),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://nskai-udara.vercel.app",
+    title: "NSKAI UDARA | The Ultimate Gen Z Event Experience",
+    description:
+      "Join the movement. NSKAI UDARA is the premier event platform for the next generation. Register now, track live attendees, and become an ambassador.",
+    siteName: "NSKAI UDARA",
+    images: [
+      {
+        url: "/og-image.png", // We'll need to create or assume this exists, or use a default
+        width: 1200,
+        height: 630,
+        alt: "NSKAI UDARA Event Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NSKAI UDARA | The Ultimate Gen Z Event Experience",
+    description:
+      "Join the movement. NSKAI UDARA is the premier event platform for the next generation.",
+    images: ["/og-image.png"],
+    creator: "@nskai",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
