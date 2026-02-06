@@ -1,7 +1,7 @@
 generator client {
   provider = "prisma-client-js"
-  // Tip: Prisma 7 works best if you define a custom output path
-  output   = "../generated/client"
+
+  output = "../generated/client"
 }
 
 datasource db {

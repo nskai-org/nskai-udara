@@ -3,7 +3,7 @@ import { Navbar } from "@/components/navbar";
 import { getRank } from "@/lib/ranks";
 import { Trophy, Medal, User } from "lucide-react";
 import { currentUser } from "@clerk/nextjs/server";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/client";
 
 export const revalidate = 60; // Revalidate every minute
 
