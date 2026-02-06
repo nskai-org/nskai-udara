@@ -3,8 +3,18 @@ import { Navbar } from "@/components/navbar";
 import { getRank } from "@/lib/ranks";
 import { Trophy, Medal, User } from "lucide-react";
 import { currentUser } from "@clerk/nextjs/server";
+import { Prisma } from "@prisma/client";
 
 export const revalidate = 60; // Revalidate every minute
+
+// Define the type for the ambassador with the included relation count
+type AmbassadorWithStats = Prisma.UserGetPayload<{
+  include: {
+    _count: {
+      select: { leads: true };
+    };
+  };
+}>;
 
 export default async function LeaderboardPage() {
   const user = await currentUser(); // To highlight the current user
@@ -45,7 +55,7 @@ export default async function LeaderboardPage() {
         </header>
 
         <div className="max-w-4xl mx-auto space-y-4">
-          {topAmbassadors.map((ambassador, index) => {
+          {topAmbassadors.map((ambassador: AmbassadorWithStats, index) => {
             const isMe = ambassador.email === userEmail;
             const rank = index + 1;
             const referralCount = ambassador._count.leads;
