@@ -4,16 +4,32 @@ import { PrismaClient } from "@/generated/client";
 
 const connectionString = `${process.env.DATABASE_URL}`;
 
-const pool = new Pool({ connectionString });
-const adapter = new PrismaPg(pool);
+const globalForPrisma = global as unknown as {
+  prisma: PrismaClient;
+  pool: Pool;
+  adapter: PrismaPg;
+};
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+// Singleton pattern for Pool and Adapter to prevent connection leaks in dev
+const pool =
+  globalForPrisma.pool ||
+  new Pool({
+    connectionString,
+    max: 10,
+    idleTimeoutMillis: 30000,
+  });
+
+const adapter = globalForPrisma.adapter || new PrismaPg(pool);
 
 export const prisma =
   globalForPrisma.prisma ||
   new PrismaClient({
-    adapter, // This satisfies the "requires adapter" error
+    adapter,
     log: ["query"],
   });
 
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== "production") {
+  globalForPrisma.prisma = prisma;
+  globalForPrisma.pool = pool;
+  globalForPrisma.adapter = adapter;
+}
