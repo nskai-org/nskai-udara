@@ -66,6 +66,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { Footer } from "@/components/footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -78,10 +80,11 @@ export default function RootLayout({
           className={cn(
             spaceGrotesk.variable,
             inter.variable,
-            "antialiased font-sans bg-background text-foreground",
+            "antialiased font-sans bg-background text-foreground flex flex-col min-h-screen",
           )}
         >
-          {children}
+          <div className="grow">{children}</div>
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

@@ -40,7 +40,7 @@ export default async function Home() {
 
         <div className="mt-8 flex gap-4">
           <Link href="/register">
-            <Button size="lg" className="text-lg">
+            <Button size="lg" className="text-sm md:text-lg">
               Register
             </Button>
           </Link>
@@ -48,9 +48,9 @@ export default async function Home() {
             <Button
               size="lg"
               variant="outline"
-              className="text-lg border-white/20 text-white hover:bg-white/10"
+              className="text-sm md:text-lg border-white/20 text-white hover:bg-white/10"
             >
-              Ambassador Hub
+              Become an Ambassador
             </Button>
           </Link>
         </div>
