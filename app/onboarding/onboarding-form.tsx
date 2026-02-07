@@ -58,13 +58,13 @@ export function OnboardingForm({
           name="firstName"
           placeholder="First Name"
           required
-          className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-lime transition-colors"
+          className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-orange transition-colors"
         />
         <input
           name="lastName"
           placeholder="Last Name"
           required
-          className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-lime transition-colors"
+          className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-orange transition-colors"
         />
       </div>
 
@@ -72,14 +72,14 @@ export function OnboardingForm({
         name="university"
         placeholder="University Name"
         required
-        className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-lime transition-colors"
+        className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-orange transition-colors"
       />
 
       <input
         name="phone"
         placeholder="Phone (WhatsApp preferred)"
         required
-        className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-lime transition-colors"
+        className="bg-input border border-border p-3 text-white rounded-none focus:outline-none focus:border-brand-orange transition-colors"
       />
 
       <div className="relative">
@@ -88,7 +88,7 @@ export function OnboardingForm({
           name="username"
           placeholder="your_handle for your referral ID"
           required
-          className="bg-input border border-border p-3 pl-8 w-full text-white rounded-none focus:outline-none focus:border-brand-lime transition-colors"
+          className="bg-input border border-border p-3 pl-8 w-full text-white rounded-none focus:outline-none focus:border-brand-orange transition-colors"
         />
       </div>
 

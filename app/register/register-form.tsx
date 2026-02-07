@@ -47,7 +47,7 @@ export function RegistrationForm() {
   if (success) {
     return (
       <div className="text-center animate-in fade-in zoom-in duration-500">
-        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-brand-lime/10 text-brand-lime">
+        <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-brand-orange/10 text-brand-orange">
           <CheckCircle2 className="h-10 w-10" />
         </div>
         <h2 className="font-heading text-4xl font-bold uppercase mb-4">
@@ -71,9 +71,10 @@ export function RegistrationForm() {
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       {referralCode && (
-        <div className="bg-brand-purple/10 border border-brand-purple/30 p-3 text-center mb-6">
-          <p className="text-sm text-brand-purple uppercase tracking-widest font-bold">
-            Invited by Agent <span className="text-white">@{referralCode}</span>
+        <div className="bg-brand-red/10 border border-brand-red/30 p-3 text-center mb-6">
+          <p className="text-sm text-brand-red uppercase tracking-widest font-bold">
+            Invited by Ambassador{" "}
+            <span className="text-white">@{referralCode}</span>
           </p>
         </div>
       )}
@@ -92,7 +93,7 @@ export function RegistrationForm() {
           <input
             name="firstName"
             required
-            className="w-full bg-input border border-border p-4 text-white rounded-none focus:outline-none focus:border-brand-lime transition-colors"
+            className="w-full bg-input border border-border p-4 text-white rounded-none focus:outline-none focus:border-brand-orange transition-colors"
             placeholder="JOHNNY"
           />
         </div>
@@ -103,7 +104,7 @@ export function RegistrationForm() {
           <input
             name="lastName"
             required
-            className="w-full bg-input border border-border p-4 text-white rounded-none focus:outline-none focus:border-brand-lime transition-colors"
+            className="w-full bg-input border border-border p-4 text-white rounded-none focus:outline-none focus:border-brand-orange transition-colors"
             placeholder="SILVERHAND"
           />
         </div>

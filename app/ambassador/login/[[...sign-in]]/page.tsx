@@ -3,7 +3,7 @@ import { Navbar } from "@/components/navbar";
 
 export default function AmbassadorLoginPage() {
   return (
-    <div className="min-h-screen bg-black text-white relative selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-background text-white relative selection:bg-white selection:text-black">
       <Navbar />
 
       {/* Grid Background */}
@@ -15,14 +15,14 @@ export default function AmbassadorLoginPage() {
           appearance={{
             elements: {
               formButtonPrimary:
-                "bg-brand-lime text-black hover:bg-brand-lime/90 rounded-none font-bold uppercase",
+                "bg-brand-orange text-black hover:bg-brand-orange/90 rounded-none font-bold uppercase",
               card: "bg-card border border-white/10 rounded-none",
               headerTitle: "font-heading uppercase text-2xl",
               headerSubtitle: "text-zinc-400 font-sans",
               socialButtonsBlockButton:
                 "rounded-none border-white/20 text-white hover:bg-white/5",
               formFieldInput: "bg-input border-border text-white rounded-none",
-              footerActionLink: "text-brand-lime hover:text-brand-lime/80",
+              footerActionLink: "text-brand-orange hover:text-brand-orange/80",
             },
           }}
         />
