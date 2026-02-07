@@ -32,11 +32,11 @@ export default async function ReferralsPage() {
             My Referrals
           </h1>
           <p className="text-zinc-400">
-            You have recruited{" "}
-            <span className="text-brand-lime font-bold">
+            You have onboarded{" "}
+            <span className="text-brand-orange font-bold">
               {referrals.length}
             </span>{" "}
-            operatives.
+            members.
           </p>
         </header>
 

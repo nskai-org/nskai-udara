@@ -2,10 +2,14 @@ import { LiveCounter } from "@/components/live-counter";
 import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
 
-export default function Home() {
+export default async function Home() {
+  const { userId } = await auth();
+  const ambassadorLink = userId ? "/dashboard" : "/ambassador";
+
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-black text-white selection:bg-white selection:text-black">
+    <div className="relative min-h-screen w-full overflow-hidden bg-background text-white selection:bg-white selection:text-black">
       <Navbar />
 
       {/* Grid Background Effect */}
@@ -15,8 +19,8 @@ export default function Home() {
         {/* Badge */}
         <div className="mb-8 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-zinc-400 backdrop-blur-xl">
           <span className="mr-2 flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-lime"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
           </span>
           Registration is Live
         </div>
@@ -24,7 +28,7 @@ export default function Home() {
         {/* Hero Text */}
         <h1 className="text-center font-heading text-6xl font-black uppercase leading-[0.9] tracking-tighter sm:text-8xl md:text-9xl">
           The Future <br />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-lime to-emerald-400">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-orange to-emerald-400">
             Is Here
           </span>
         </h1>
@@ -40,7 +44,7 @@ export default function Home() {
               Register
             </Button>
           </Link>
-          <Link href="/ambassador">
+          <Link href={ambassadorLink}>
             <Button
               size="lg"
               variant="outline"

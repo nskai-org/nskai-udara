@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "NSKAI UDARA",
     images: [
       {
-        url: "/og-image.png", // We'll need to create or assume this exists, or use a default
+        url: "/og-image.png", // TODO: include OG image
         width: 1200,
         height: 630,
         alt: "NSKAI UDARA Event Platform",

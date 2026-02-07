@@ -54,22 +54,22 @@ export function VibeCard({
         }}
       >
         {/* Holographic Overlays */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-lime/20 blur-3xl rounded-full translate-x-10 -translate-y-10" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-brand-purple/20 blur-3xl rounded-full -translate-x-10 translate-y-10" />
+        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/20 blur-3xl rounded-full translate-x-10 -translate-y-10" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-brand-red/20 blur-3xl rounded-full -translate-x-10 translate-y-10" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-size-[1rem_1rem] bg-repeat pointer-events-none" />
 
         {/* Header */}
         <div className="relative z-10 flex justify-between items-start">
           <div>
             <h3 className="font-heading font-black text-2xl uppercase tracking-tighter text-white">
-              NSKAI <span className="text-brand-lime">|</span>
+              NSKAI <span className="text-brand-orange">|</span>
             </h3>
             <p className="text-[10px] uppercase tracking-widest text-zinc-400">
               Ambassador Access
             </p>
           </div>
           <div className="text-right">
-            <span className="block text-2xl font-heading font-black text-brand-lime/50 uppercase tracking-widest">
+            <span className="block text-2xl font-heading font-black text-brand-orange/50 uppercase tracking-widest">
               {rank}
             </span>
           </div>
@@ -77,7 +77,10 @@ export function VibeCard({
 
         {/* Center: QR Code */}
         <div className="relative z-10 flex justify-center my-4">
-          <div className="bg-white p-3 rounded-sm shadow-xl shadow-brand-lime/10">
+          <div className="absolute top-4 right-4 animate-pulse">
+            <div className="h-2 w-2 rounded-full bg-brand-orange shadow-[0_0_10px_var(--color-brand-orange)]" />
+          </div>
+          <div className="bg-white p-3 rounded-sm shadow-xl shadow-brand-orange/10">
             <QRCode
               value={referralLink}
               size={140}
@@ -90,8 +93,11 @@ export function VibeCard({
         {/* Footer: User Details */}
         <div className="relative z-10 space-y-1">
           <div className="border-t border-white/20 pt-4">
+            <div
+              className={`h-8 w-24 bg-linear-to-r from-transparent via-brand-red/20 to-transparent transform rotate-45 animate-shimmer`}
+            />
             <p className="text-[10px] uppercase text-zinc-500 mb-0.5">
-              Operative
+              Ambassador
             </p>
             <h2 className="font-heading text-2xl font-bold uppercase truncate">
               {firstName} {lastName}
@@ -99,7 +105,7 @@ export function VibeCard({
           </div>
           <div>
             <p className="text-[10px] uppercase text-zinc-500 mb-0.5">Sector</p>
-            <p className="font-mono text-sm uppercase truncate text-brand-lime">
+            <p className="font-mono text-sm uppercase truncate text-brand-orange">
               {school}
             </p>
           </div>

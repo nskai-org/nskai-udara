@@ -1,20 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  /* Brand Guidelines Colors */
+  --udara-orange: #ff6b00;
+  --revolution-red: #d9230f;
+  --sunshine-yellow: #ffc700;
+  --midnight-black: #0f0f0f;
+  --tech-white: #ffffff;
 
-  /* Brand Colors */
-  --brand-lime: #ccff00;
-  --brand-purple: #7000ff;
-  --brand-pink: #ff00cc;
+  /* Theme Mapping */
+  --background: var(--midnight-black); /* Was #000000 */
+  --foreground: var(--tech-white); /* Was #ffffff */
+
+  /* Semantic Aliases (Legacy Support) */
+  --brand-lime: var(--udara-orange); /* Primary Action */
+  --brand-purple: var(--revolution-red); /* Secondary */
+  --brand-pink: var(--sunshine-yellow); /* Accent */
 
   /* UI Colors */
-  --card: #111111;
-  --card-foreground: #ffffff;
+  --card: #151515; /* Slightly lighter than midnight black for contrast */
+  --card-foreground: var(--tech-white);
   --border: #333333;
   --input: #222222;
-  --ring: #ccff00;
+  --ring: var(--udara-orange);
 
   /* Fonts */
   --font-heading: "Space Grotesk", sans-serif;
@@ -22,21 +30,29 @@
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: #0f0f0f;
+  --color-foreground: #ffffff;
 
-  --color-brand-lime: var(--brand-lime);
-  --color-brand-purple: var(--brand-purple);
-  --color-brand-pink: var(--brand-pink);
+  /* Brand Colors - Directly Defined */
+  --color-brand-orange: #ff6b00;
+  --color-brand-red: #d9230f;
+  --color-brand-yellow: #ffc700;
+  --color-brand-black: #0f0f0f;
+  --color-brand-white: #ffffff;
 
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  /* Legacy Mappings (using new values directly) */
+  --color-brand-lime: #ff6b00; /* Maps to Orange */
+  --color-brand-purple: #d9230f; /* Maps to Red */
+  --color-brand-pink: #ffc700; /* Maps to Yellow */
 
-  --font-heading: var(--font-heading);
-  --font-sans: var(--font-sans);
+  --color-card: #151515;
+  --color-card-foreground: #ffffff;
+  --color-border: #333333;
+  --color-input: #222222;
+  --color-ring: #ff6b00;
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 /* Global Reset & Base Styles */

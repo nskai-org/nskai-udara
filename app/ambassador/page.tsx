@@ -5,7 +5,7 @@ import { ArrowRight, Trophy, Zap, Users } from "lucide-react";
 
 export default function AmbassadorPage() {
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-background text-white selection:bg-white selection:text-black">
       <Navbar />
 
       {/* Hero Section */}
@@ -15,7 +15,7 @@ export default function AmbassadorPage() {
         <div className="relative mx-auto max-w-5xl text-center">
           <h1 className="font-heading text-6xl font-black uppercase leading-[0.9] tracking-tighter sm:text-8xl md:text-9xl">
             Lead The <br />
-            <span className="text-brand-lime">Movement</span>
+            <span className="text-brand-yellow font-bold">Movement</span>
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-xl text-zinc-400">
             Become an NSKAI Ambassador. Rep your school, earn exclusive rewards,
@@ -37,15 +37,15 @@ export default function AmbassadorPage() {
         <div className="mx-auto max-w-6xl">
           <h2 className="mb-16 text-center font-heading text-4xl font-bold uppercase tracking-tight md:text-6xl">
             Why{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-purple to-brand-pink">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-red to-brand-yellow">
               Join Us?
             </span>
           </h2>
 
           <div className="grid gap-8 md:grid-cols-3">
             {/* Perk 1 */}
-            <div className="group relative overflow-hidden bg-card border border-white/10 p-8 hover:border-brand-lime/50 transition-colors">
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-brand-lime/10 text-brand-lime">
+            <div className="group relative overflow-hidden bg-card border border-white/10 p-8 hover:border-brand-orange/50 transition-colors">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-brand-orange/10 text-brand-orange">
                 <Trophy className="h-6 w-6" />
               </div>
               <h3 className="mb-4 font-heading text-2xl font-bold uppercase">
@@ -58,8 +58,8 @@ export default function AmbassadorPage() {
             </div>
 
             {/* Perk 2 */}
-            <div className="group relative overflow-hidden bg-card border border-white/10 p-8 hover:border-brand-purple/50 transition-colors">
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-brand-purple/10 text-brand-purple">
+            <div className="group relative overflow-hidden bg-card border border-white/10 p-8 hover:border-brand-red/50 transition-colors">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-brand-red/10 text-brand-red">
                 <Zap className="h-6 w-6" />
               </div>
               <h3 className="mb-4 font-heading text-2xl font-bold uppercase">
@@ -72,8 +72,8 @@ export default function AmbassadorPage() {
             </div>
 
             {/* Perk 3 */}
-            <div className="group relative overflow-hidden bg-card border border-white/10 p-8 hover:border-brand-pink/50 transition-colors">
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-brand-pink/10 text-brand-pink">
+            <div className="group relative overflow-hidden bg-card border border-white/10 p-8 hover:border-brand-yellow/50 transition-colors">
+              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm bg-brand-yellow/10 text-brand-yellow">
                 <Users className="h-6 w-6" />
               </div>
               <h3 className="mb-4 font-heading text-2xl font-bold uppercase">

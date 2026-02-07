@@ -33,7 +33,7 @@ export default async function DashboardPage() {
   const nextRankData = getNextRank(currentRank);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-background text-white selection:bg-white selection:text-black">
       <Navbar />
 
       <main className="container mx-auto px-6 pt-24 pb-12">
@@ -44,7 +44,7 @@ export default async function DashboardPage() {
           </h1>
           <p className="text-zinc-400 mt-2">
             Ambassador Handle:{" "}
-            <span className="text-brand-lime">@{dbUser.username}</span>
+            <span className="text-brand-orange">@{dbUser.username}</span>
           </p>
         </header>
 
@@ -52,7 +52,7 @@ export default async function DashboardPage() {
           {/* Stats Card */}
           <div className="bg-card border border-white/10 p-6">
             <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 bg-brand-lime/10 rounded-sm text-brand-lime">
+              <div className="p-3 bg-brand-orange/10 rounded-sm text-brand-orange">
                 <Users className="h-6 w-6" />
               </div>
               <h3 className="font-heading text-xl uppercase">
@@ -79,12 +79,12 @@ export default async function DashboardPage() {
           {/* Rank Card */}
           <div className="bg-card border border-white/10 p-6">
             <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 bg-brand-purple/10 rounded-sm text-brand-purple">
+              <div className="p-3 bg-brand-red/10 rounded-sm text-brand-red">
                 <Trophy className="h-6 w-6" />
               </div>
               <h3 className="font-heading text-xl uppercase">Rank</h3>
             </div>
-            <div className="text-4xl font-black font-heading tracking-tighter text-brand-lime">
+            <div className="text-4xl font-black font-heading tracking-tighter text-brand-orange">
               {currentRank}
             </div>
 
@@ -98,7 +98,7 @@ export default async function DashboardPage() {
                 </p>
                 <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-brand-purple transition-all duration-500"
+                    className="h-full bg-brand-red transition-all duration-500"
                     style={{
                       width: `${Math.min(100, (dbUser._count.leads / nextRankData.threshold) * 100)}%`,
                     }}
@@ -149,7 +149,7 @@ export default async function DashboardPage() {
             <div className="w-full max-w-sm mx-auto xl:mx-0">
               <VibeCard
                 username={dbUser.username}
-                firstName={dbUser.firstName || "Agent"}
+                firstName={dbUser.firstName || "Ambassador"}
                 lastName={dbUser.lastName || ""}
                 school={dbUser.school || "Unknown Sector"}
                 rank={currentRank}

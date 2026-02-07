@@ -7,7 +7,6 @@ import { Prisma } from "@/generated/client";
 
 export const revalidate = 60; // Revalidate every minute
 
-// Define the type for the ambassador with the included relation count
 type AmbassadorWithStats = Prisma.UserGetPayload<{
   include: {
     _count: {
@@ -17,7 +16,7 @@ type AmbassadorWithStats = Prisma.UserGetPayload<{
 }>;
 
 export default async function LeaderboardPage() {
-  const user = await currentUser(); // To highlight the current user
+  const user = await currentUser();
   const userEmail = user?.emailAddresses[0]?.emailAddress;
 
   const topAmbassadors = await prisma.user.findMany({
@@ -35,7 +34,7 @@ export default async function LeaderboardPage() {
   });
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-background text-white selection:bg-white selection:text-black">
       <Navbar />
 
       {/* Background Grid */}
@@ -47,8 +46,8 @@ export default async function LeaderboardPage() {
             Leaderboard
           </h1>
           <p className="text-zinc-400 max-w-lg mx-auto">
-            The top operatives dominating the field.
-            <span className="block text-brand-lime mt-1 font-bold">
+            The top ambassadors dominating the field.
+            <span className="block text-brand-orange mt-1 font-bold">
               Earn your spot.
             </span>
           </p>
@@ -66,7 +65,7 @@ export default async function LeaderboardPage() {
                 key={ambassador.id}
                 className={`
                     flex items-center gap-4 p-4 border transition-all hover:scale-[1.01]
-                    ${isMe ? "bg-brand-lime/10 border-brand-lime" : "bg-card border-white/10"}
+                    ${isMe ? "bg-brand-orange/10 border-brand-orange" : "bg-card border-white/10"}
                  `}
               >
                 {/* Rank Number */}
@@ -91,24 +90,24 @@ export default async function LeaderboardPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <h3 className="font-bold text-lg truncate uppercase">
-                      {ambassador.firstName || "Agent"}{" "}
+                      {ambassador.firstName || "Ambassador"}{" "}
                       {ambassador.lastName?.charAt(0)}.
                     </h3>
                     {isMe && (
-                      <span className="text-[10px] bg-brand-lime text-black px-1.5 py-0.5 font-bold uppercase">
+                      <span className="text-[10px] bg-brand-orange text-black px-1.5 py-0.5 font-bold uppercase">
                         You
                       </span>
                     )}
                   </div>
                   <p className="text-sm text-zinc-500 uppercase truncate">
                     {ambassador.school || "Unknown Sector"} •{" "}
-                    <span className="text-brand-purple">{tier}</span>
+                    <span className="text-brand-red">{tier}</span>
                   </p>
                 </div>
 
                 {/* Score */}
                 <div className="text-right shrink-0">
-                  <div className="text-3xl font-black font-heading leading-none">
+                  <div className="text-2xl font-black font-heading tracking-tighter text-brand-orange">
                     {referralCount}
                   </div>
                   <div className="text-[10px] text-zinc-500 uppercase tracking-widest">
